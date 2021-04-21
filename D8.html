@@ -125,16 +125,21 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
             // let inputValue= document.getElementById('newTask')
             //     inputValue.value = ""
 
+            const removeInput = function(){
+                let input = document.getElementById('newTask')
+                    input.value = ''
+            }
+
+           
            const addNewTask = function(){
                 let ulList = document.getElementById('myTaskList')
                 let input = document.getElementById('newTask')
                 let inputValue = input.value
                 let list = document.createElement('li')
                 list.innerText = inputValue
-                input = ""
                 ulList.appendChild(list)
                 changeTaskBackgroundColor()
-                
+                removeInput()                
            }     
            
           
