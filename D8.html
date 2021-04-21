@@ -34,12 +34,25 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
 
     h1{
         color: aqua;
+        margin: 1% 350px;
     }
 
     #text{
         color: rgb(238, 241, 240);
+        margin: 1% 300px;
     }
 
+    #newTask{
+        border-radius: 12px;
+        text-align: center;
+        display:inline-block;
+        width: 6cm;
+        padding: 8px 12px;
+        margin: 1% 500px;
+        background-color:cyan;
+        font-weight: bold;
+        font-size:large;
+    }
     /* li{
         background-image: url(images.jfif);
         /* , url(paper.gif); */
@@ -52,11 +65,44 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
     
 
     .button{
+        display: inline;        
         width: 200px;
         border-radius: 12px;   
         color: blue;
-        background-color:lightskyblue
+        background-color:lightskyblue;
+        text-align: center;
+        padding: 0.8em;
+        width: 20%;
+        font-family: "Poppins", sans-serif;
+        font-weight: bold;
+        font-size:large;
     }
+
+    #sortButton{
+        margin: 1% 500px;
+    }
+
+    #backgroundButton{
+        margin: 2% 50px;
+        width: 8cm;
+    }
+
+    
+
+    #backGroundInput{
+        margin: 1% 375px;
+    }
+
+    /* #colorPicker{
+        color:white;
+    } */
+
+    .click *{
+        margin: 1% 80px;
+        display: inline;
+        text-align: center;
+    } 
+
     li{
         border: 0.05em;
         border-style: double;
@@ -79,37 +125,55 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
       then press "Add new task"</span
     ><br /><br />
 
+    <div class= 'click'>
+        <input class = "button" type="button" value="Add new Task" onclick="addNewTask()" />
+        <button type="button" class = "button" onclick="removeLast()">Remove Last Task</button>
+        <button type="button" class = "button" onclick="removeFirst()">Remove First Task</button>
+    </div>
+    
+    
+
+    <br>
+    <br>
+
+    <hr>
+
     <input type="text" id="newTask" />
-    <input class = "button" type="button" value="Add new Task" onclick="addNewTask()" />
+
+
     
 
     <!-- EXERCISE 3
         Create a button "Remove Last Task" to trigger the method "removeLast"
         -->
 
-        <button type="button" class = "button" onclick="removeLast()">Remove Last Task</button>
+        
 
 
     <!-- EXERCISE 4
         Create a button "Remove First Task" to trigger the method "removeFirst"
         -->
         
-        <button type="button" class = "button" onclick="removeFirst()">Remove First Task</button>
+        
 
     <ul id="myTaskList"></ul>
 
     <hr />
 
-    <input type="color" placeholder="Color" onchange="changeTaskBackgroundColor()" id="colorPicker" />
+    <div id="backGroundInput">
+        <input type="color" placeholder="Color" onchange="changeTaskBackgroundColor()" id="colorPicker" />
     <input
-      type="button" class = "button"
+      type="button" class = "button" id="backgroundButton"
       value="Change task background"
       onclick="changeTaskBackgroundColor()"
     />
 
+    </div>
+    
+
     <hr />
 
-    <input type="button" class = "button" value="Sort" onclick="bubblesort()" />
+    <input type="button" class = "button" id="sortButton" value="Sort" onclick="bubblesort()" />
 
     <script>
 
@@ -166,7 +230,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
             */
 
             const removeLast = function(){
-                let allTaskList = document.querySelectorAll('ul li')
+                let allTaskList = document.querySelectorAll('li')
                 allTaskList[allTaskList.length-1].remove()
             }
 
@@ -175,7 +239,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
             */
 
             const removeFirst = function(){
-                let allTaskList = document.querySelectorAll('ul li')
+                let allTaskList = document.querySelectorAll('li')
                 allTaskList[0].remove()
             }
 
@@ -185,7 +249,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
 
             const getTasksAsArray = function(){
                 let listArray = []
-                let list = document.querySelectorAll('ul li')
+                let list = document.querySelectorAll('li')
                 
                 for(let i=0; i<list.length; i++){
                     
@@ -213,7 +277,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
             const changeTaskBackgroundColor = function(){
                 let colorPicker = document.getElementById('colorPicker')
                 colorPickerValue = colorPicker.value
-                let list = document.querySelectorAll('ul li')
+                let list = document.querySelectorAll('li')
                 for(let i=0; i<list.length; i++){
                     
                     list[i].style.backgroundColor = colorPickerValue
@@ -238,7 +302,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
             const bubblesort = function(){
                 let Array = []
                 sortedArray=[]
-                let listArray = document.querySelectorAll('ul li')
+                let listArray = document.querySelectorAll('li')
                 // console.log(listArray)               
 
                 for(let j=0; j<listArray.length; j++){
