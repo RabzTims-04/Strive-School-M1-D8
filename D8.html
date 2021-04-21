@@ -122,15 +122,19 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
                 - Append the child to the UL
             */
 
-            let inputValue= document.getElementById('newTask')
-                inputValue.value = ""
+            // let inputValue= document.getElementById('newTask')
+            //     inputValue.value = ""
 
            const addNewTask = function(){
                 let ulList = document.getElementById('myTaskList')
-                let inputValue = document.getElementById('newTask').value
+                let input = document.getElementById('newTask')
+                let inputValue = input.value
                 let list = document.createElement('li')
                 list.innerText = inputValue
+                input = ""
                 ulList.appendChild(list)
+                changeTaskBackgroundColor()
+                
            }     
            
           
@@ -213,26 +217,19 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
                 let Array = []
                 sortedArray=[]
                 let listArray = document.querySelectorAll('ul li')
-                // console.log(listArray);
-            
-                // listArray.innerText.sort()  
+                // console.log(listArray)               
 
-               
+                for(let j=0; j<listArray.length; j++){
+                    Array.push(listArray[j].innerText.toLowerCase())
+                } 
+               sortedArray = Array.sort()
 
                 // for(let i=0; i<parent.children.length; i++)
                 // {
                 //     parent.children[i].remove()
                 // }
-
-                for(let j=0; j<listArray.length; j++){
-                    Array.push(listArray[j].innerText.toLowerCase())
-                } 
-
-               sortedArray = Array.sort()
-
                 let parent = document.querySelector('ul')
-                parent.innerHTML =''
-                
+                parent.innerHTML =''                
                              
                 // console.log(sortedArray)
 
@@ -241,8 +238,9 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
                     //taught by Tetiana
                     const li = `<li>${sortedArray[k]}</li>`
                     parent.innerHTML+=li
-                    // parent.innerHTML.classList.add('newForm')
+                    changeTaskBackgroundColor()
 
+                    // parent.innerHTML.classList.add('newForm')
                     // const li = document.createElement('li')
                     // li.innerText = sortedArray[k]
                     // pare.appendChild(li)
