@@ -125,22 +125,39 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
             // let inputValue= document.getElementById('newTask')
             //     inputValue.value = ""
 
-            const removeInput = function(){
+        //     const emptyField = function(){
+        //         if(input.value === ''){ 
+        //             console.log('text field is empty, nothing to add in list');
+        //     }
+        //     else{
+        //         return addNewTask()
+        //     }
+        // }           
+            
+
+        const removeInput = function(){
                 let input = document.getElementById('newTask')
                     input.value = ''
-            }
+        }
 
-           
-           const addNewTask = function(){
-                let ulList = document.getElementById('myTaskList')
-                let input = document.getElementById('newTask')
-                let inputValue = input.value
+        const addNewTask = function(){
+
+            let ulList = document.getElementById('myTaskList')
+            let input = document.getElementById('newTask')
+            let inputValue = input.value
+
+            if(input.value === ''){ 
+                    console.log('text field is empty, nothing to add in list')
+                }
+            else{
                 let list = document.createElement('li')
                 list.innerText = inputValue
                 ulList.appendChild(list)
                 changeTaskBackgroundColor()
-                removeInput()                
-           }     
+                removeInput() 
+                }               
+                              
+        }     
            
           
 
