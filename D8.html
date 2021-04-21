@@ -85,17 +85,16 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
     #backgroundButton{
         margin: 2% 50px;
         width: 8cm;
-    }
-
-    
+    }    
 
     #backGroundInput{
         margin: 1% 375px;
     }
 
-    /* #colorPicker{
+     #colorPicker{
         color:white;
-    } */
+        background-color: white;
+    } 
 
     .click *{
         margin: 1% 80px;
@@ -161,7 +160,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
     <hr />
 
     <div id="backGroundInput">
-        <input type="color" placeholder="Color" onchange="changeTaskBackgroundColor()" id="colorPicker" />
+        <input type="color" placeholder="Color" value="#FFFFFF" onchange="changeTaskBackgroundColor()" id="colorPicker" />
     <input
       type="button" class = "button" id="backgroundButton"
       value="Change task background"
