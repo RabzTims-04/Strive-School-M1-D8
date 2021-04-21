@@ -81,6 +81,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
 
     <input type="text" id="newTask" />
     <input class = "button" type="button" value="Add new Task" onclick="addNewTask()" />
+    
 
     <!-- EXERCISE 3
         Create a button "Remove Last Task" to trigger the method "removeLast"
@@ -111,6 +112,8 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
     <input type="button" class = "button" value="Sort" onclick="bubblesort()" />
 
     <script>
+
+              
       /* EXERCISE 5: 
                 Add a new task to the list.
                 Suggestion:
@@ -118,14 +121,19 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
                 - Use the document.createElement to create the new List Item
                 - Append the child to the UL
             */
+
+            let inputValue= document.getElementById('newTask')
+                inputValue.value = ""
+
            const addNewTask = function(){
                 let ulList = document.getElementById('myTaskList')
                 let inputValue = document.getElementById('newTask').value
                 let list = document.createElement('li')
                 list.innerText = inputValue
                 ulList.appendChild(list)
-
-           }        
+           }     
+           
+          
 
       /* EXERCISE 6: 
                 Create a method "removeLast" which removes the last item from the task list
@@ -153,18 +161,20 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
                 let listArray = []
                 let list = document.querySelectorAll('ul li')
                 
-                // for(let i=0; i<list.length; i++){
+                for(let i=0; i<list.length; i++){
                     
-                //     console.log(list[i].innerText);
-                    for(let i=0; i<listArray.length; i++){
-                    // console.log(listArray[i].innerText)
-                    let listInnerText = listArray[i].innerText
-                     for(let j=0; j<listInnerText.length;j++){
-                         sortedArray.push(listInnerText[j])
-                     }
+                    // console.log(list[i].innerText);
+                    listArray.push(list[i].innerText)
+                    // for(let i=0; i<listArray.length; i++){
+                    // // console.log(listArray[i].innerText)
+                    // let listInnerText = listArray[i].innerText
+                    //  for(let j=0; j<listInnerText.length;j++){
+                    //      sortedArray.push(listInnerText[j])
+                    //  }
                 }   
                     // let listInnerText = list[i].innerText
                     // console.log(listArray.push(listInnerText));
+                    console.log(listArray);
                 }
             
 
