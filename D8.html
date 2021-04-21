@@ -40,6 +40,15 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
     #text{
         color: rgb(238, 241, 240);
         margin: 1% 300px;
+        font-weight: bold;
+        font-size:large;
+    }
+
+    #textLabel{
+        color: rgb(238, 241, 240);
+        margin: 4% 550px;
+        font-weight: bold;
+        font-size:large;
     }
 
     #newTask{
@@ -49,7 +58,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
         width: 6cm;
         padding: 8px 12px;
         margin: 1% 500px;
-        background-color:cyan;
+        background-color:lightskyblue;
         font-weight: bold;
         font-size:large;
     }
@@ -125,7 +134,7 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
     ><br /><br />
 
     <div class= 'click'>
-        <input class = "button" type="button" value="Add new Task" onclick="addNewTask()" />
+        <input class = "button" type="button" value="Add New Task" onclick="addNewTask()" />
         <button type="button" class = "button" onclick="removeLast()">Remove Last Task</button>
         <button type="button" class = "button" onclick="removeFirst()">Remove First Task</button>
     </div>
@@ -137,7 +146,8 @@ The have a list of tasks and can, at any time, add a new one, delete one or sort
 
     <hr>
 
-    <input type="text" id="newTask" />
+    <label id="textLabel" for="textField">Enter your task here: </label>
+    <input type="text" id="newTask" name="textField" />
 
 
     
